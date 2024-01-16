@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 
-const API_URL = "https://quotedata.onrender.com";
+const API_URL = "https://quotedata.onrender.com/";
 
 export default function Quotegenerator() {
   const [apidata, setApidata] = useState([{}]);
