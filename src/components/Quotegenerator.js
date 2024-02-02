@@ -12,43 +12,47 @@ export default function Quotegenerator() {
       .then((response) => response.json())
       .then((data) => {
         setApidata(data);
-        setRandomQuote(data[Math.floor(Math.random() * data.length)]);
+        setRandomQuote(data);
       });
   }, []);
-  
+
   const changequote = () => {
-    setRandomQuote(apidata[Math.floor(Math.random() * apidata.length)]);
+    window.location.reload();
+    setRandomQuote(apidata);
+
   };
 
   return (
     <div className="container">
-      <div class="header">
+      <div className="header">
         <h2>Quote Generator</h2>
       </div>
-      <div class="main-content">
-        <div class="text-area">
-          <span class="quote">
+      <div className="main-content">
+        <div className="text-area">
+          <span className="quote">
             {randomQuote ? (
               <div className="quote-container">
                 <p className="quote-text">"{randomQuote.quote}"</p>
               </div>
             ) : (
-              <p>Loading</p>
+              // <p>"If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough"</p>
+              <p>...</p>
             )}
           </span>
         </div>
-        <div class="person">
+        <div className="person">
           {randomQuote ? (
             <div className="quote-container">
               <p className="author-text">- {randomQuote.person}</p>
             </div>
           ) : (
-            <p>
-                Loading     
-            </p>
+            // <p>
+            //     "Oprah Winfrey"     
+            // </p>
+            <p>...</p>
           )}
         </div>
-        <div class="button-area">
+        <div className="button-area">
           <button id="new" onClick={changequote}>
             Change
           </button>
